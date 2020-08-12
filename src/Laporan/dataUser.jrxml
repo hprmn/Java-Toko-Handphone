@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eb74b4b9-9136-47e5-a285-40040a515621">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="style2" mode="Opaque" backcolor="#CCFFFF">
+		<pen lineWidth="1.0"/>
+		<box>
+			<pen lineWidth="0.0"/>
+			<topPen lineWidth="0.0"/>
+			<leftPen lineWidth="0.0"/>
+			<bottomPen lineWidth="0.0"/>
+			<rightPen lineWidth="0.0"/>
+		</box>
+	</style>
+	<style name="style1" mode="Opaque" backcolor="#009999" hAlign="Center" vAlign="Middle"/>
+	<queryString>
+		<![CDATA[SELECT
+     t_user.`kode_user` AS t_user_kode_user,
+     t_user.`username` AS t_user_username,
+     t_user.`password` AS t_user_password,
+     t_user.`nip` AS t_user_nip,
+     t_pegawai.`nip` AS t_pegawai_nip,
+     t_pegawai.`nama_p` AS t_pegawai_nama_p,
+     t_pegawai.`alamat_p` AS t_pegawai_alamat_p,
+     t_pegawai.`jenis_kelamin` AS t_pegawai_jenis_kelamin,
+     t_pegawai.`tahun_masuk` AS t_pegawai_tahun_masuk,
+     t_pegawai.`kode_jabatan` AS t_pegawai_kode_jabatan,
+     t_jabatan.`kode_jabatan` AS t_jabatan_kode_jabatan,
+     t_jabatan.`nama_jabatan` AS t_jabatan_nama_jabatan
+FROM
+     `t_pegawai` t_pegawai INNER JOIN `t_user` t_user ON t_pegawai.`nip` = t_user.`nip`
+     INNER JOIN `t_jabatan` t_jabatan ON t_pegawai.`kode_jabatan` = t_jabatan.`kode_jabatan`]]>
+	</queryString>
+	<field name="t_user_kode_user" class="java.lang.Integer"/>
+	<field name="t_user_username" class="java.lang.String"/>
+	<field name="t_user_password" class="java.lang.String"/>
+	<field name="t_user_nip" class="java.lang.Integer"/>
+	<field name="t_pegawai_nip" class="java.lang.Integer"/>
+	<field name="t_pegawai_nama_p" class="java.lang.String"/>
+	<field name="t_pegawai_alamat_p" class="java.lang.String"/>
+	<field name="t_pegawai_jenis_kelamin" class="java.lang.String"/>
+	<field name="t_pegawai_tahun_masuk" class="java.sql.Date"/>
+	<field name="t_pegawai_kode_jabatan" class="java.lang.Integer"/>
+	<field name="t_jabatan_kode_jabatan" class="java.lang.Integer"/>
+	<field name="t_jabatan_nama_jabatan" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="64" y="44" width="144" height="20" uuid="a9458575-aaf1-4b81-9f2c-bf969f56dc8b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Toko Penjualan Handphone]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="64" height="64" uuid="c7e650c1-3d80-4fb2-899b-197e0e3deaeb"/>
+				<imageExpression><![CDATA["./laporan/report-3-64.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="64" y="0" width="252" height="44" uuid="3c65600f-0c20-4da8-9088-803976b966ed"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Data User]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="75" width="555" height="1" uuid="332cb41a-5dce-4636-a97e-94f871d8473c"/>
+				<graphicElement>
+					<pen lineWidth="5.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="417" y="15" width="138" height="20" uuid="b3d89097-7f51-46d1-a0b7-cc99643a9963"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="337" y="15" width="80" height="20" uuid="7f32385b-1f89-4d55-8a68-70c36e09ce4a"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Cetak :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement style="style1" x="21" y="41" width="100" height="20" uuid="b9fd38ce-70d3-449c-ae74-d787dc259ae1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="223" y="41" width="100" height="20" uuid="9f18fa1e-01a0-4a2c-ba9a-e4f35d5c7121"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Username]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="324" y="41" width="100" height="20" uuid="e4e76436-1496-475e-a2ed-3f834d8386a3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Password]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="style1" x="122" y="41" width="100" height="20" uuid="8c52f5e9-c83e-4767-a56c-6b5c281b21a6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Pegawai]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement style="style2" x="21" y="0" width="100" height="20" uuid="49fe773c-ce31-471a-9dbe-b94d8a4a037b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t_user_nip}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style2" x="223" y="0" width="100" height="20" uuid="7a1feded-2e86-421e-a51a-ff761f573826"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t_user_username}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style2" x="324" y="0" width="100" height="20" uuid="727607a0-a4a1-44d3-ab3d-41e76b02f058"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t_user_password}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="style2" x="122" y="0" width="100" height="20" uuid="eb8078bc-1e35-4ec5-b049-2e13da29c48c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{t_pegawai_nama_p}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
